@@ -1,24 +1,94 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Reveal } from "@/components/site/Reveal";
+import { Container } from "@/components/site/Section";
+import {
+  AboutSection,
+  BenefitsSection,
+  CtaBand,
+  CtaButtons,
+  PricingSection,
+  ProcessSection,
+  ServicesSection,
+  WorkSection,
+} from "@/components/site/sections";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Sam — Modern Websites for Businesses That Want to Stand Out";
+const description =
+  "Freelance web developer building fast, responsive, custom websites for small businesses, creators, coaches, and local businesses.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+function Hero() {
+  return (
+    <section className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px] glow-top" />
+      <Container className="relative pb-16 pt-24 sm:pb-24 sm:pt-32">
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">
+            Freelance Web Development
+          </p>
+        </Reveal>
+        <Reveal delay={80}>
+          <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.08] sm:text-6xl">
+            Modern websites for businesses that want to stand out.
+          </h1>
+        </Reveal>
+        <Reveal delay={160}>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            I design and build fast, responsive websites tailored to your
+            business, brand, and customers.
+          </p>
+        </Reveal>
+        <Reveal delay={240} className="mt-9">
+          <CtaButtons />
+        </Reveal>
+        <Reveal delay={320} className="mt-16">
+          <div className="hairline" />
+          <ul className="grid gap-6 pt-8 sm:grid-cols-3">
+            {[
+              ["Small businesses", "Sites that make local businesses easy to find and trust."],
+              ["Creators & coaches", "Pages built to explain your offer and convert visitors."],
+              ["Redesigns", "Outdated sites rebuilt into modern, responsive experiences."],
+            ].map(([label, copy]) => (
+              <li key={label}>
+                <p className="text-sm font-medium">{label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {copy}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+      <ServicesSection />
+      <WorkSection />
+      <BenefitsSection />
+      <ProcessSection />
+      <PricingSection />
+      <AboutSection />
+      <CtaBand />
+    </>
   );
 }
