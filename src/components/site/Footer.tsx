@@ -48,20 +48,14 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {site.socials.map((s) => (
                 <li key={s.label}>
-                  {s.href ? (
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {s.label}
-                    </a>
-                  ) : (
-                    <span className="text-sm text-muted-foreground/60">
-                      {s.label} — {"note" in s ? s.note : "Coming soon"}
-                    </span>
-                  )}
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {s.label}
+                  </a>
                 </li>
               ))}
             </ul>

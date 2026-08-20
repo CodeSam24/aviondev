@@ -1,3 +1,5 @@
+import progressiveRpm from "@/assets/progressive-rpm.png.asset.json";
+
 /**
  * Single source of truth for business info, services, projects, pricing.
  * Edit values here — no component changes needed.
@@ -7,15 +9,14 @@ export const site = {
   name: "AVION",
   brand: "AVION — Web Development",
   role: "Freelance Web Development",
-  owner: "Sam",
+  owner: "Samuel Davis",
   email: "samuelldavis7706@gmail.com",
   tagline: "Modern websites for businesses that want to stand out.",
   description:
     "AVION is a freelance web development studio building modern, responsive websites for small businesses, creators, coaches, and local businesses.",
   socials: [
     { label: "GitHub", href: "https://github.com/CodeSam24" },
-    /** Replace `href` once the AVION Instagram account exists. */
-    { label: "Instagram", href: "", note: "Coming soon" },
+    { label: "Instagram", href: "https://www.instagram.com/avion.dev" },
   ],
 } as const;
 
@@ -66,6 +67,8 @@ export type Project = {
   href?: string;
   /** Two-tone accent used by the generated preview panel. */
   hue: number;
+  /** Real screenshot of the live project. */
+  image?: string;
 };
 
 /** Only real projects. Add new entries here and the Work section updates itself. */
@@ -77,6 +80,7 @@ export const projects: Project[] = [
       "A clean, information-first website structured around services and customer enquiries, built to load fast and read clearly on any device.",
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     hue: 230,
+    image: progressiveRpm.url,
   },
 ];
 
