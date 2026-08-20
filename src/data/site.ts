@@ -4,17 +4,18 @@
  */
 
 export const site = {
-  name: "Sam",
-  brand: "Sam — Web Development",
-  role: "Freelance Web Developer",
-  email: "hello@example.com",
+  name: "AVION",
+  brand: "AVION — Web Development",
+  role: "Freelance Web Development",
+  owner: "Sam",
+  email: "samuelldavis7706@gmail.com",
+  tagline: "Modern websites for businesses that want to stand out.",
   description:
-    "Freelance web developer building modern, responsive websites for small businesses, creators, coaches, and local businesses.",
+    "AVION is a freelance web development studio building modern, responsive websites for small businesses, creators, coaches, and local businesses.",
   socials: [
-    { label: "GitHub", href: "#" },
-    { label: "X / Twitter", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Instagram", href: "#" },
+    { label: "GitHub", href: "https://github.com/CodeSam24" },
+    /** Replace `href` once the AVION Instagram account exists. */
+    { label: "Instagram", href: "", note: "Coming soon" },
   ],
 } as const;
 
@@ -23,6 +24,7 @@ export const nav = [
   { label: "Services", to: "/services" },
   { label: "Work", to: "/work" },
   { label: "Process", to: "/process" },
+  { label: "Pricing", to: "/pricing" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ] as const;
@@ -41,7 +43,7 @@ export const services: Service[] = [
   {
     title: "Landing Pages",
     description:
-      "Focused, high-converting pages built around a specific product, service, or goal.",
+      "Focused pages built around a specific product, service, or goal.",
   },
   {
     title: "Website Redesigns",
@@ -66,38 +68,15 @@ export type Project = {
   hue: number;
 };
 
+/** Only real projects. Add new entries here and the Work section updates itself. */
 export const projects: Project[] = [
-  {
-    slug: "burger-dev",
-    name: "Burger Dev",
-    description:
-      "A menu-forward site for a food brand, focused on fast browsing and clear ordering information.",
-    tech: ["React", "TypeScript", "Tailwind CSS"],
-    hue: 60,
-  },
   {
     slug: "progressive-rpm",
     name: "Progressive RPM",
     description:
-      "A clean, information-first website structured around services and customer enquiries.",
-    tech: ["React", "TypeScript", "Vite"],
+      "A clean, information-first website structured around services and customer enquiries, built to load fast and read clearly on any device.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     hue: 230,
-  },
-  {
-    slug: "coach-website",
-    name: "Coach Website",
-    description:
-      "A personal coaching site built to explain the offer and turn visitors into booked calls.",
-    tech: ["React", "Tailwind CSS", "Forms"],
-    hue: 155,
-  },
-  {
-    slug: "freelancing-website",
-    name: "Freelancing Website",
-    description:
-      "This site — a client-facing freelance web development site built for clarity and speed.",
-    tech: ["TanStack Start", "TypeScript", "Tailwind CSS"],
-    hue: 20,
   },
 ];
 
@@ -140,8 +119,7 @@ export const processSteps = [
   {
     step: "03",
     title: "Review",
-    description:
-      "You review the website and provide feedback for revisions.",
+    description: "You review the website and provide feedback for revisions.",
   },
   {
     step: "04",
@@ -164,14 +142,14 @@ export const pricing: Tier[] = [
   {
     name: "Starter",
     description: "Simple landing pages and smaller websites.",
-    price: "Starting at $XXX",
+    price: "Starting at $75",
     note: "Starting price",
     cta: "Start a Project",
   },
   {
     name: "Business",
     description: "Multi-page websites for businesses and organizations.",
-    price: "Starting at $XXX",
+    price: "Starting at $150",
     note: "Starting price",
     cta: "Start a Project",
     featured: true,
@@ -185,6 +163,9 @@ export const pricing: Tier[] = [
   },
 ];
 
+export const pricingNote =
+  "Every project is quoted individually based on scope, features, and requirements.";
+
 export const projectTypes = [
   "Business Website",
   "Landing Page",
@@ -195,8 +176,8 @@ export const projectTypes = [
 
 export const budgets = [
   "Not sure yet",
-  "Under $500",
+  "Under $150",
+  "$150 – $500",
   "$500 – $1,000",
-  "$1,000 – $2,500",
-  "$2,500+",
+  "$1,000+",
 ];
