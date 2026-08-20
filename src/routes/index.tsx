@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { Container } from "@/components/site/Section";
+import { HeroVisual } from "@/components/site/HeroVisual";
 import {
   AboutSection,
   BenefitsSection,
@@ -12,9 +13,9 @@ import {
   WorkSection,
 } from "@/components/site/sections";
 
-const title = "Sam — Modern Websites for Businesses That Want to Stand Out";
+const title = "AVION — Modern Websites for Businesses That Want to Stand Out";
 const description =
-  "Freelance web developer building fast, responsive, custom websites for small businesses, creators, coaches, and local businesses.";
+  "AVION is a freelance web development studio building fast, responsive, custom websites for small businesses, creators, coaches, and local businesses.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,6 +38,8 @@ function Hero() {
     <section className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px] glow-top" />
       <Container className="relative pb-16 pt-24 sm:pb-24 sm:pt-32">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div>
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">
             Freelance Web Development
@@ -56,6 +59,11 @@ function Hero() {
         <Reveal delay={240} className="mt-9">
           <CtaButtons />
         </Reveal>
+        </div>
+        <Reveal delay={200} className="hidden lg:block">
+          <HeroVisual />
+        </Reveal>
+        </div>
         <Reveal delay={320} className="mt-16">
           <div className="hairline" />
           <ul className="grid gap-6 pt-8 sm:grid-cols-3">

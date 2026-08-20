@@ -5,9 +5,9 @@ import { Reveal } from "@/components/site/Reveal";
 import { Section } from "@/components/site/Section";
 import { processSteps, site } from "@/data/site";
 
-const title = "Contact — Start a Web Design Project | Sam";
+const title = "Contact — Start a Web Design Project | AVION";
 const description =
-  "Tell me what you're looking to build and I'll get back to you. Send a project inquiry or email directly.";
+  "Tell AVION what you're looking to build and get a reply. Send a project inquiry or email directly.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

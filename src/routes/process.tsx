@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CtaBand, PricingSection, ProcessSection } from "@/components/site/sections";
 
-const title = "Process — How a Project Works | Sam";
+const title = "Process — How a Project Works | AVION";
 const description =
   "A simple four-step process: tell me what you need, design and build, review, and launch.";
 

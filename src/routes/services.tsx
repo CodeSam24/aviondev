@@ -7,7 +7,7 @@ import {
   ServicesSection,
 } from "@/components/site/sections";
 
-const title = "Services — Websites, Landing Pages & Redesigns | Sam";
+const title = "Services — Websites, Landing Pages & Redesigns | AVION";
 const description =
   "Business websites, landing pages, website redesigns, and ongoing maintenance — built custom for your business.";
 

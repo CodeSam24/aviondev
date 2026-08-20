@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CtaBand, WorkSection } from "@/components/site/sections";
 
-const title = "Work — Web Development Projects | Sam";
+const title = "Work — Web Development Projects | AVION";
 const description =
-  "A selection of websites I've designed and built, with the goal, approach, and technologies behind each project.";
+  "A look at the websites AVION has designed and built, with the goal, approach, and technologies behind each project.";
 
 export const Route = createFileRoute("/work")({
   head: () => ({

@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { AboutSection, BenefitsSection, CtaBand } from "@/components/site/sections";
 
-const title = "About Sam — Freelance Web Developer";
+const title = "About AVION — Freelance Web Development by Sam";
 const description =
-  "I'm Sam, a freelance web developer focused on building modern websites for businesses and creators.";
+  "AVION is run by Sam, a freelance web developer building modern websites for businesses and creators. You work directly with him.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
