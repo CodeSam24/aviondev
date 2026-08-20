@@ -2,10 +2,10 @@ import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/site";
 import { Reveal } from "./Reveal";
 
-function Preview({ name, hue }: { name: string; hue: number }) {
+function Preview({ name, hue, featured }: { name: string; hue: number; featured?: boolean }) {
   return (
     <div
-      className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border"
+      className={`relative w-full overflow-hidden rounded-xl border border-border ${featured ? "aspect-[16/8]" : "aspect-[16/10]"}`}
       style={{
         background: `radial-gradient(120% 90% at 20% 0%, oklch(0.42 0.09 ${hue} / 0.55), transparent 60%), linear-gradient(160deg, oklch(0.22 0 0), oklch(0.16 0 0))`,
       }}
@@ -50,7 +50,7 @@ export function ProjectCard({
         featured ? "lg:p-8" : ""
       }`}
     >
-      <Preview name={project.name} hue={project.hue} />
+      <Preview name={project.name} hue={project.hue} featured={featured} />
       <div
         className={`flex flex-col gap-5 px-1 pb-1 pt-6 sm:flex-row sm:items-end sm:justify-between ${
           featured ? "sm:pt-8" : ""
