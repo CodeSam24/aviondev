@@ -2,7 +2,31 @@ import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/site";
 import { Reveal } from "./Reveal";
 
-function Preview({ name, hue, featured }: { name: string; hue: number; featured?: boolean }) {
+function Preview({
+  name,
+  hue,
+  featured,
+  image,
+}: {
+  name: string;
+  hue: number;
+  featured?: boolean;
+  image?: string;
+}) {
+  if (image) {
+    return (
+      <div
+        className={`relative w-full overflow-hidden rounded-xl border border-border ${featured ? "aspect-[16/9]" : "aspect-[16/10]"}`}
+      >
+        <img
+          src={image}
+          alt={`Screenshot of the ${name} website`}
+          loading="lazy"
+          className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+      </div>
+    );
+  }
   return (
     <div
       className={`relative w-full overflow-hidden rounded-xl border border-border ${featured ? "aspect-[16/8]" : "aspect-[16/10]"}`}
@@ -50,7 +74,12 @@ export function ProjectCard({
         featured ? "lg:p-8" : ""
       }`}
     >
-      <Preview name={project.name} hue={project.hue} featured={featured} />
+      <Preview
+        name={project.name}
+        hue={project.hue}
+        featured={featured}
+        image={project.image}
+      />
       <div
         className={`flex flex-col gap-5 px-1 pb-1 pt-6 sm:flex-row sm:items-end sm:justify-between ${
           featured ? "sm:pt-8" : ""

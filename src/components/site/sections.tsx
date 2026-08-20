@@ -233,6 +233,9 @@ export function AboutSection() {
             work—not just use them. Now I use those skills to help businesses
             build a stronger online presence.
           </p>
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+            AVION is operated by Samuel Davis.
+          </p>
           <div className="mt-8 hairline" />
           <p className="mt-8 text-sm text-muted-foreground">
             Prefer email? Reach me at{" "}
