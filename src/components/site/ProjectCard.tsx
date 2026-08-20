@@ -11,7 +11,7 @@ function Preview({
   name: string;
   hue: number;
   featured?: boolean;
-  image?: string;
+  image?: string | undefined;
 }) {
   if (image) {
     return (
