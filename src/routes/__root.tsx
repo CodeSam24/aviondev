@@ -80,8 +80,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Sam" },
-      { property: "og:site_name", content: "Sam — Web Development" },
+      { name: "author", content: "Sam — AVION" },
+      { property: "og:site_name", content: "AVION — Web Development" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -101,10 +101,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          name: "Sam — Web Development",
+          name: "AVION",
           description:
-            "Freelance web developer building modern, responsive websites for small businesses, creators, coaches, and local businesses.",
-          email: "hello@example.com",
+            "AVION is a freelance web development studio building modern, responsive websites for small businesses, creators, coaches, and local businesses.",
+          email: "samuelldavis7706@gmail.com",
+          founder: { "@type": "Person", name: "Sam" },
+          sameAs: ["https://github.com/CodeSam24"],
           serviceType: "Web design and development",
         }),
       },

@@ -12,9 +12,9 @@ import {
   WorkSection,
 } from "@/components/site/sections";
 
-const title = "Sam — Modern Websites for Businesses That Want to Stand Out";
+const title = "AVION — Modern Websites for Businesses That Want to Stand Out";
 const description =
-  "Freelance web developer building fast, responsive, custom websites for small businesses, creators, coaches, and local businesses.";
+  "AVION is a freelance web development studio building fast, responsive, custom websites for small businesses, creators, coaches, and local businesses.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

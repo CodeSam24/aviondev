@@ -13,7 +13,7 @@ export function Footer() {
               <span className="text-accent">.</span>
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              {site.description}
+              {site.tagline}
             </p>
             <a
               href={`mailto:${site.email}`}
@@ -48,12 +48,20 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {site.socials.map((s) => (
                 <li key={s.label}>
-                  <a
-                    href={s.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {s.label}
-                  </a>
+                  {s.href ? (
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {s.label}
+                    </a>
+                  ) : (
+                    <span className="text-sm text-muted-foreground/60">
+                      {s.label} — {"note" in s ? s.note : "Coming soon"}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
@@ -64,7 +72,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.brand}. All rights reserved.
           </p>
-          <p>{site.role}</p>
+          <p>{site.role} · Built by {site.owner}</p>
         </div>
       </Container>
     </footer>
