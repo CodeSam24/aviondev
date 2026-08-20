@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import {
   benefits,
   pricing,
+  pricingNote,
   processSteps,
   projects,
   services,
@@ -72,13 +73,36 @@ export function WorkSection({ limit }: { limit?: number }) {
       <SectionHeading
         eyebrow="Selected Work"
         title="Projects, treated like case studies"
-        description="A look at what I've built — the goal, the approach, and the stack behind each site."
+        description="What the project needed to do, the approach taken, and the stack behind it."
       />
-      <div className="mt-12 grid gap-5 lg:grid-cols-2">
+      <div className={`mt-12 grid gap-5 ${list.length > 1 ? "lg:grid-cols-2" : ""}`}>
         {list.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} index={i} />
+          <ProjectCard
+            key={project.slug}
+            project={project}
+            index={i}
+            featured={list.length === 1}
+          />
         ))}
       </div>
+      <Reveal
+        delay={120}
+        className="mt-6 flex flex-col items-start gap-4 rounded-2xl border border-dashed border-border p-7 sm:flex-row sm:items-center sm:justify-between sm:p-8"
+      >
+        <div>
+          <p className="text-base font-medium">More projects coming soon.</p>
+          <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
+            New client work is added here as it launches. Your project could be next.
+          </p>
+        </div>
+        <Link
+          to="/contact"
+          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+        >
+          Start a Project
+          <ArrowRight className="size-4" />
+        </Link>
+      </Reveal>
     </Section>
   );
 }
@@ -87,7 +111,7 @@ export function BenefitsSection() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="Why Work With Me"
+        eyebrow="Why AVION"
         title="A simpler way to get a website built"
       />
       <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
@@ -137,15 +161,17 @@ export function ProcessSection() {
   );
 }
 
-export function PricingSection() {
+export function PricingSection({ heading = true }: { heading?: boolean }) {
   return (
     <Section id="pricing">
-      <SectionHeading
-        eyebrow="Pricing"
-        title="Transparent starting prices"
-        description="Every project is quoted individually. The figures below are starting prices — final pricing depends on scope."
-      />
-      <div className="mt-12 grid gap-4 lg:grid-cols-3">
+      {heading ? (
+        <SectionHeading
+          eyebrow="Pricing"
+          title="Transparent starting prices"
+          description="The figures below are starting prices — final pricing depends on scope."
+        />
+      ) : null}
+      <div className={`grid gap-4 lg:grid-cols-3 ${heading ? "mt-12" : ""}`}>
         {pricing.map((tier, i) => (
           <Reveal
             key={tier.name}
@@ -182,6 +208,11 @@ export function PricingSection() {
           </Reveal>
         ))}
       </div>
+      <Reveal delay={200}>
+        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          {pricingNote}
+        </p>
+      </Reveal>
     </Section>
   );
 }
