@@ -104,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "AVION",
           description:
             "AVION is a freelance web development studio building modern, responsive websites for small businesses, creators, coaches, and local businesses.",
-          email: "samuelldavis7706@gmail.com",
+          email: "samueldavis5506@gmail.com",
           founder: { "@type": "Person", name: "Samuel Davis" },
           sameAs: ["https://github.com/CodeSam24"],
           serviceType: "Web design and development",
