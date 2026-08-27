@@ -10,7 +10,7 @@ export const site = {
   brand: "AVION — Web Development",
   role: "Freelance Web Development",
   owner: "Samuel Davis",
-  email: "samuelldavis7706@gmail.com",
+  email: "samueldavis5506@gmail.com",
   tagline: "Modern websites for businesses that want to stand out.",
   description:
     "AVION is a freelance web development studio building modern, responsive websites for small businesses, creators, coaches, and local businesses.",
