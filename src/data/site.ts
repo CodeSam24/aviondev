@@ -17,6 +17,7 @@ export const site = {
   socials: [
     { label: "GitHub", href: "https://github.com/CodeSam24" },
     { label: "Instagram", href: "https://www.instagram.com/avion.dev" },
+    { label: "Cash App", href: "https://cash.app/$fluxsam" },
   ],
 } as const;
 
