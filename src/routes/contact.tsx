@@ -3,13 +3,19 @@ import { ContactForm } from "@/components/site/ContactForm";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/site/Reveal";
 import { Section } from "@/components/site/Section";
-import { processSteps, site } from "@/data/site";
+import { packageSlugs, processSteps, site, type PackageSlug } from "@/data/site";
 
 const title = "Contact — Start a Web Design Project | AVION";
 const description =
   "Tell AVION what you're looking to build and get a reply. Send a project inquiry or email directly.";
 
 export const Route = createFileRoute("/contact")({
+  validateSearch: (search: Record<string, unknown>): { package?: PackageSlug } => {
+    const value = String(search["package"] ?? "").toLowerCase();
+    return packageSlugs.includes(value as PackageSlug)
+      ? { package: value as PackageSlug }
+      : {};
+  },
   head: () => ({
     meta: [
       { title },
@@ -26,6 +32,8 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const { package: selected } = Route.useSearch();
+
   return (
     <>
       <PageHeader
@@ -36,8 +44,9 @@ function ContactPage() {
       <Section className="pt-0">
         <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:gap-14">
           <Reveal>
-            <ContactForm />
+            <ContactForm initialPackage={selected} />
           </Reveal>
+
           <Reveal delay={120} className="space-y-8">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">

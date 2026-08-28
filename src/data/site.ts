@@ -11,6 +11,7 @@ export const site = {
   role: "Freelance Web Development",
   owner: "Samuel Davis",
   email: "samueldavis5506@gmail.com",
+  cashApp: { handle: "$fluxsam", url: "https://cash.app/$fluxsam" },
   tagline: "Modern websites for businesses that want to stand out.",
   description:
     "AVION is a freelance web development studio building modern, responsive websites for small businesses, creators, coaches, and local businesses.",
@@ -20,6 +21,7 @@ export const site = {
     { label: "Cash App", href: "https://cash.app/$fluxsam" },
   ],
 } as const;
+
 
 export const nav = [
   { label: "Home", to: "/" },
@@ -133,33 +135,43 @@ export const processSteps = [
   },
 ];
 
+export type PackageSlug = "starter" | "business" | "custom";
+
 export type Tier = {
+  slug: PackageSlug;
   name: string;
   description: string;
   price: string;
   note: string;
   cta: string;
   featured?: boolean;
+  /** Optional deposit customers can send via Cash App to reserve a slot. */
+  deposit?: string;
 };
 
 /** Prices are starting prices — update the `price` field anytime. */
 export const pricing: Tier[] = [
   {
+    slug: "starter",
     name: "Starter",
     description: "Simple landing pages and smaller websites.",
     price: "Starting at $75",
     note: "Starting price",
     cta: "Start a Project",
+    deposit: "$25",
   },
   {
+    slug: "business",
     name: "Business",
     description: "Multi-page websites for businesses and organizations.",
     price: "Starting at $150",
     note: "Starting price",
     cta: "Start a Project",
     featured: true,
+    deposit: "$50",
   },
   {
+    slug: "custom",
     name: "Custom",
     description: "Larger or specialized projects with custom requirements.",
     price: "Let's Talk",
@@ -167,6 +179,22 @@ export const pricing: Tier[] = [
     cta: "Get in Touch",
   },
 ];
+
+export const packageSlugs = pricing.map((t) => t.slug) as PackageSlug[];
+
+export const industries = [
+  "Local business / trades",
+  "Professional services",
+  "Retail / e-commerce",
+  "Restaurant / hospitality",
+  "Creator / personal brand",
+  "Coaching / fitness",
+  "Nonprofit",
+  "Other",
+];
+
+export const contactMethods = ["Email", "Instagram DM", "Phone / text"];
+
 
 export const pricingNote =
   "Every project is quoted individually based on scope, features, and requirements.";
