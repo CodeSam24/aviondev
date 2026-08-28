@@ -11,6 +11,7 @@ export const site = {
   role: "Freelance Web Development",
   owner: "Samuel Davis",
   email: "samueldavis5506@gmail.com",
+  cashApp: { handle: "$fluxsam", url: "https://cash.app/$fluxsam" },
   tagline: "Modern websites for businesses that want to stand out.",
   description:
     "AVION is a freelance web development studio building modern, responsive websites for small businesses, creators, coaches, and local businesses.",
@@ -20,6 +21,7 @@ export const site = {
     { label: "Cash App", href: "https://cash.app/$fluxsam" },
   ],
 } as const;
+
 
 export const nav = [
   { label: "Home", to: "/" },
