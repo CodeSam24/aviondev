@@ -84,14 +84,18 @@ function buildMailto(values: InquiryPayload) {
   )}&body=${encodeURIComponent(body)}`;
 }
 
-export function ContactForm({ initialPackage }: { initialPackage?: PackageSlug }) {
+export function ContactForm({
+  initialPackage,
+}: {
+  initialPackage?: PackageSlug | undefined;
+}) {
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState<InquiryPayload | null>(null);
   const [mailtoHref, setMailtoHref] = useState("");
   const [contactMethod, setContactMethod] = useState(contactMethods[0]);
 
   const defaultPackage =
-    pricing.find((t) => t.slug === initialPackage)?.name ?? pricing[1].name;
+    pricing.find((t) => t.slug === initialPackage)?.name ?? pricing[1]?.name ?? "";
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
