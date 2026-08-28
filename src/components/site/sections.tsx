@@ -195,16 +195,34 @@ export function PricingSection({ heading = true }: { heading?: boolean }) {
             <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
               {tier.note}
             </p>
-            <Link
-              to="/contact"
-              className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition-colors ${
-                tier.featured
-                  ? "bg-primary text-primary-foreground hover:opacity-90"
-                  : "border border-border hover:border-accent hover:text-accent"
-              }`}
-            >
-              {tier.cta}
-            </Link>
+            <div className="mt-8 flex flex-col gap-3">
+              <Link
+                to="/contact"
+                search={{ package: tier.slug }}
+                className={`inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition-colors ${
+                  tier.featured
+                    ? "bg-primary text-primary-foreground hover:opacity-90"
+                    : "border border-border hover:border-accent hover:text-accent"
+                }`}
+              >
+                {tier.cta}
+              </Link>
+              {tier.deposit ? (
+                <a
+                  href={site.cashApp.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-full border border-accent/40 px-5 py-3 text-sm font-medium text-accent transition-colors hover:bg-accent/10"
+                >
+                  Pay {tier.deposit} deposit via Cash App
+                </a>
+              ) : null}
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                {tier.deposit
+                  ? `Optional ${tier.deposit} deposit to ${site.cashApp.handle} reserves your build slot and comes off the final price. Send the inquiry form either way — the deposit isn't confirmed until I reply.`
+                  : `Custom projects are quoted first — no payment until we agree on scope.`}
+              </p>
+            </div>
           </Reveal>
         ))}
       </div>
@@ -212,7 +230,41 @@ export function PricingSection({ heading = true }: { heading?: boolean }) {
         <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">
           {pricingNote}
         </p>
+        <div className="panel mt-6 max-w-2xl p-6">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+            Paying by Cash App
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Deposits and invoices are paid to{" "}
+            <a
+              href={site.cashApp.url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-foreground underline-offset-4 hover:text-accent hover:underline"
+            >
+              {site.cashApp.handle}
+            </a>
+            . Add your business name and package in the Cash App note, then fill out
+            the inquiry form so I have your project details. Payments are confirmed
+            manually by me over email — the site never marks a payment as complete.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              Send project details
+            </Link>
+            <a
+              href={`mailto:${site.email}`}
+              className="inline-flex items-center justify-center rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+            >
+              Email {site.email}
+            </a>
+          </div>
+        </div>
       </Reveal>
+
     </Section>
   );
 }
