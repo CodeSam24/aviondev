@@ -1,4 +1,5 @@
 import progressiveRpm from "@/assets/progressive-rpm.png.asset.json";
+import sirGentleman from "@/assets/sir-gentleman.png.asset.json";
 
 /**
  * Single source of truth for business info, services, projects, pricing.
@@ -72,6 +73,8 @@ export type Project = {
   hue: number;
   /** Real screenshot of the live project. */
   image?: string;
+  /** Optional disclaimer shown under the description (e.g. demo concepts). */
+  note?: string;
 };
 
 /** Only real projects. Add new entries here and the Work section updates itself. */
@@ -84,6 +87,17 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     hue: 230,
     image: progressiveRpm.url,
+  },
+  {
+    slug: "sir-gentleman-cuts",
+    name: "Sir Gentleman Barbershop #2",
+    description:
+      "A bold, dark barbershop concept site built around booking, a service menu, and photos — designed to turn local searches into booked chairs.",
+    tech: ["React", "TypeScript", "Tailwind CSS"],
+    href: "https://sir-gentleman-cuts.lovable.app/",
+    hue: 0,
+    image: sirGentleman.url,
+    note: "Demo website concept project created independently as a portfolio example. This business was contacted but did not commission or pay for this website.",
   },
 ];
 
