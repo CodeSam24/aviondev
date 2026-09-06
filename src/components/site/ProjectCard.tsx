@@ -96,6 +96,11 @@ export function ProjectCard({
           >
             {project.description}
           </p>
+          {project.note ? (
+            <p className="mt-3 border-l-2 border-accent/50 pl-3 text-xs leading-relaxed text-muted-foreground">
+              {project.note}
+            </p>
+          ) : null}
           <ul className="mt-4 flex flex-wrap gap-2">
             {project.tech.map((t) => (
               <li
